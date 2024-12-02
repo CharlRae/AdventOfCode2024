@@ -2,10 +2,9 @@
 def report_is_safe(report_list):
     if len(report_list) == 1:
         return True
-    if (report_list[0] - report_list[1] < -3):
+    if (report_list[0] - report_list[1] < -3) or (report_list[0] - report_list[1] >= 0):
         return False
-    if report_list[0] - report_list[1] >= 0:
-        return False
+        
     return report_is_safe(report_list[1:])
 
 
@@ -16,8 +15,8 @@ total = 0
 with open(file_name, 'r') as f:
     for report in f:
         report_list = report.split()
-        report_list = list(map(int, report_list))
-        if report_list[0] - report_list[1] > 0:
+        report_list = list(map(int, report_list)) # Casts each element in the list to int
+        if report_list[0] - report_list[1] > 0: # Forces list to be ascending
             report_list = report_list[::-1]
         if report_is_safe(report_list):
             total += 1
