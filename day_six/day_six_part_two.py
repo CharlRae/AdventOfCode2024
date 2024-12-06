@@ -19,7 +19,7 @@ def creates_loop(obstruction_position):
         break
 
     in_loop = False
-    while current_position['x'] > -1 and current_position['x'] < len(map_list[0]) and current_position['y'] > -1 and current_position['y'] < len(map_list) and not in_loop: # While guard is in the lab
+    while current_position['x'] > -1 and current_position['x'] < len(map_list[0]) and current_position['y'] > -1 and current_position['y'] < len(map_list) and not in_loop: # While guard is in the lab and not in a loop
 
         current_state = (current_position['x'], current_position['y'], symbol)
         if current_state in position_history: # Checks if this exact scenario has ocurred before, if it has, it's a loop
